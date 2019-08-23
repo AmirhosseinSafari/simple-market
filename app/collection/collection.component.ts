@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectableService } from 'app/shared/collectable.service';
+import { Collectable } from 'app/shared/collectable.model';
 
 @Component({
   selector: 'app-collection',
@@ -8,11 +9,15 @@ import { CollectableService } from 'app/shared/collectable.service';
 })
 export class CollectionComponent implements OnInit {
 
-  collectables = [];
+  collectedItems: Collectable[] = [];
   constructor(private collectableService: CollectableService) { }
 
+  onRemoveFromCollection(item: Collectable){
+    this.collectableService.removeFromCollection(item);
+  }
+
   ngOnInit() {
-    this.collectables = this.collectableService.getCollectables();
+    this.collectedItems = this.collectableService.getCollection();
   }
 
 }

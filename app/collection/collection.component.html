@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-xs-12">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of collectables">
+    <ul class="list-group" *ngIf="collectedItems.length > 0">
+      <li class="list-group-item" *ngFor="let item of collectedItems">
         <span class="badge">{{ item.type }}</span>
-        <button class="btn btn-danger">remove from collection</button>&nbsp;
+        <button class="btn btn-danger" (click)="onRemoveFromCollection(item)">remove from collection</button>&nbsp;
         {{ item.description }}
       </li>
     </ul>
+    <h3 *ngIf="collectedItems.length === 0">Start adding items to your Collection on the Market!</h3>
   </div>
 </div>
