@@ -8,6 +8,7 @@ import { MarketComponent } from './market/market.component';
 import { CollectionComponent } from './collection/collection.component';
 import { CollectableService } from './shared/collectable.service';
 import { HeaderComponent } from './header.component';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [CollectableService],
   bootstrap: [AppComponent]
